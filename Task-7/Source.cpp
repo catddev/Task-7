@@ -41,7 +41,6 @@ void sort(Man*&ms) {
 	cout << "Enter 1 to sort by name" << endl;
 	cout << "Enter 2 to sort by surname" << endl;
 	cin >> choice;
-	int k = 0;
 	switch (choice)
 	{
 	case 1:
@@ -74,7 +73,7 @@ void sort(Man*&ms) {
 }
 //2-Вывод списка именинников месяца с указанием даты рождения.
 void b_day(Man*ms) {
-	cout << "Enter a month to check if there are b-day persons" << endl;
+	cout << endl << "Enter a month to check if there are b-day persons" << endl;
 	int bm;
 	cin >> bm;
 	int k = 0;
@@ -186,6 +185,7 @@ void search(Man*ms) {
 }
 //5-Редактирование записи.
 void edit(Man*&ms) {
+	cout << "EDIT LIST: " << endl;
 	for (int i = 0; i < current_size; i++)
 	{
 		cout << i + 1 << " - ";
@@ -221,14 +221,6 @@ int main()
 
 	setlocale(LC_ALL, "Rus");
 
-	//красиво зациклить задания - продолжить, выйти
-	/*int cont=1;
-	while(cont)
-	{
-	cout << "Enter 1 to continue" << endl << "Enter any other key to exit" << endl;
-	cin >> cont;
-	if (cont != 1) break;*/
-
 	Man*ms = 0;
 	Man tmp_man;
 	char c;
@@ -260,18 +252,14 @@ int main()
 	for (int i = 0; i < current_size; i++)
 		ms[i].print();
 
-
-	cout << endl << endl;
+	cout << endl << "//after erasing" << endl;
 	erase_by_name(ms, "Karina"); //3
 	erase_by_name(ms, "Liza"); //3
 	erase_last(ms); //3
 	for (int i = 0; i < current_size; i++)
 		ms[i].print();
 
-
-
-
-	/*}*/
+	delete[] ms;
 
 	system("pause");
 	return 0;
